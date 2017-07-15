@@ -1,0 +1,124 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>The Curator</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/style.css')}}" />
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename = 'css/materialize.min.css')}}"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+    <div class="divider">
+
+    </div>  
+    <div class="section">
+      <div class="row">
+        <div class="col s11">
+          <center><h3 style='color:#26a69a'>Resource Finder</h3></center>
+        </div>
+      </div>
+      <div class="row">
+        <form class="col s12" action="http://localhost:5000/search/" method = "post">
+          <div class="row">
+            <div class="input-field col s8">
+              <input type="text" name="query" value='{{search_query}}' id = "search_box">
+              <label for="query"> Search Query</label>
+            </div>
+            <div class="input-field col s2">
+
+              <select name='no_of_pages'>
+                <option value=1 selected>One</option>
+                <option value=2 >Two</option>
+                <option value=3 >Three</option>
+              </select>
+
+            </div>
+            <div class="col s2">
+              <div class="section">
+                <center>
+                  <button class="btn waves-effect waves-light" type="submit">Search
+                    <i class="material-icons right">search</i>
+                  </button>
+                </center>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <div class="section">  
+                <input name="class" type="radio" value=-1 id='o1' {% if index == -1 %} checked {% endif %}/>
+                <label class='radio' for="o1">All</label>
+
+                <input  name="class" type="radio" id='o2' value=0 {% if index == 0 %} checked {% endif %} />
+                <label class='radio' for="o2">Animals</label>
+
+                <input name="class" type="radio" id='o3' value=1 {% if index == 1 %} checked {% endif %} />
+                <label class='radio' for="o3">Authors/Poets</label>
+
+                <input name="class" type="radio" id='o4' value=2 {% if index == 2 %} checked {% endif %} />
+                <label class='radio' for="o4">English Literature</label>
+
+                <input name="class" type="radio" id='o5' value=3 {% if index == 3 %} checked {% endif %} />
+                <label for="o5">Geography</label>
+
+                <input name="class" type="radio" id='o6' value=4 {% if index == 4 %} checked {% endif %} />
+                <label class='radio' for="o6">History</label>
+
+                <input name="class" type="radio" id='o7' value=5 {% if index == 5 %} checked {% endif %} />
+                <label class='radio' for="o7">Mathematics</label>
+
+
+                <input name="class" type="radio" id='o8' value=6 {% if index == 6 %} checked {% endif %} />
+                <label class='radio' for="o8">Science</label>
+
+                <input name="class" type="radio" id='o9' value=7 {% if index == 7 %} checked {% endif %} />
+                <label class='radio' for="o9">Sociology/ Economics/ Politics</label>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class = "section">
+    <div id = 'display'>
+      {% for z in results %}
+      <div class="row">
+        <div class="col s12">
+          <div class="divider">
+          </div> 
+          <div class= "section">
+            <div class="col s8">
+              <b style="font-size: 1.16em"> {{ z.title }}</b>
+              <br>
+              <a href='{{ z.link }}'>  {{ z.link }} </a>
+              <br>
+                {{z.snippet}}
+              <br>
+            </div>
+            <div class="col s1">
+            </div>
+            <div class="col s3">
+            {% for i in range(3)%}
+            {% set k, v = z.top3[i].items()[0]%} {% for x in k.split('_') %} {{ x }} {% endfor %}  : {{ v }} <br>
+            {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename = 'js/materialize.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename = 'js/script.js')}}"></script>
+</body>
+</html>
