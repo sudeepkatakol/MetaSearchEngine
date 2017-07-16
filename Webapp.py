@@ -50,7 +50,7 @@ def search():
        	sort_index = handler.determine_class()
     else:
     	sort_index = index
-    return render_template('index2.html', results=handler.get_sorted_results(sort_index), search_query=search_query, index=index)
+    return render_template('index2.html', results=handler.get_sorted_results(sort_index), search_query=search_query, index=index, no_of_pages=no_of_pages)
 
 
 if __name__ == '__main__':

@@ -107,6 +107,6 @@ def scrape(url):
     '''
     Scrapes with the help of Arc90 function (see the Scraper module)
     '''
-    html_string = requests.get(url, timeout=7).text
+    html_string = requests.get(url, timeout=4).text
     return extract_content_with_Arc90(html_string)
     
