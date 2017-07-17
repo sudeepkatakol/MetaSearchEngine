@@ -44,7 +44,6 @@ class ScraperThread(Thread):
             self.put_list.append(result)
             self.queue.task_done()
 
-
 '''
 This class handles all the necessary actions required when an user types in query to search.
 '''
@@ -60,6 +59,8 @@ class SearchPageHandlerScraperThreads:
         self.final_results = []
         self._action()
         del self.search_results
+        if len(self.final_results) == 0:
+            raise Exception
 
     def _action(self):
     	'''

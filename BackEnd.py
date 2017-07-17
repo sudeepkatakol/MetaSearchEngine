@@ -7,7 +7,12 @@ class ModelAndClassifier:
         print 'Loading wiki model... '
         s = time()
         # Load the pretrained model available in enwiki_dbow. See the README file for more 
-        self.model = gensim.models.Doc2Vec.load('./enwiki_dbow/doc2vec.bin')
+        try :
+            self.model = gensim.models.Doc2Vec.load('./enwiki_dbow/doc2vec.bin')
+        except Exception as e:
+            print(e)
+            print ("Couldn't load the model. Exiting")
+            exit()
         y = time()
         print 'Model loading time ' + str(y - s)
         try :
@@ -28,8 +33,7 @@ class ModelAndClassifier:
     def get_vector_for_processed_document(self, processed_doc):
         '''
         type(processed_doc) = list
-        type(processed_doc[0]) = string
-        Basically, processed_doc is a list of strings.
+        processed_doc is a list of strings.
         returns the vector
         '''
         return self.model.infer_vector(processed_doc)

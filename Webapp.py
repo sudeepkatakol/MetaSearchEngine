@@ -12,10 +12,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def welcome():
-	'''
-	Displays the welcome page. See static/welcome.html
-	'''
-	return render_template('welcome.html')
+    '''
+    Displays the welcome page. See static/welcome.html
+    '''
+    return render_template('welcome.html')
 
 
 @app.route('/search/', methods=['POST', 'GET'])
@@ -42,14 +42,19 @@ def search():
 
     # If the search query and the no. of pages are same, then use previous handler object, no need to create another one 
     if search_query != prev_search_query or prev_no_of_pages != no_of_pages:
-    	handler = SearchPageHandlerScraperThreads(search_query, back_end, pages=no_of_pages)
-    	prev_search_query = search_query
-    	prev_no_of_pages = no_of_pages
+        try :
+            handler = SearchPageHandlerScraperThreads(search_query, back_end, pages=no_of_pages)
+        except :
+            prev_search_query = None
+            prev_no_of_pages = None
+            return render_template('error.html')
+        prev_search_query = search_query
+        prev_no_of_pages = no_of_pages
 
     if index == -1:
-       	sort_index = handler.determine_class()
+        sort_index = handler.determine_class()
     else:
-    	sort_index = index
+        sort_index = index
     return render_template('index2.html', results=handler.get_sorted_results(sort_index), search_query=search_query, index=index, no_of_pages=no_of_pages)
 
 
