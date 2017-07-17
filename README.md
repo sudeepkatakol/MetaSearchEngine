@@ -20,7 +20,7 @@ Open the downloaded directory on terminal and execute  `bash run.sh`
 
 Follow the instructions dictated by the script
 
-__Note__: Make sure you have Anaconda installed on your system.
+__Note__: Make sure you have [ Anaconda ] (https://www.continuum.io/downloads) installed on your system.
 
 Later on, you can either execute either `bash run.sh`   or   `source activate metasearchengine && python Webapp.py` to run the app
 
