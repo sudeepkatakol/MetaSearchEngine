@@ -22,7 +22,7 @@ Follow the instructions dictated by the script
 
 __Note__: Make sure you have [Anaconda] installed on your system.
 
-[Anaconda]: (https://www.continuum.io/downloads)
+[Anaconda]: https://www.continuum.io/downloads
 
 Later on, you can either execute either `bash run.sh`   or   `source activate metasearchengine && python Webapp.py` to run the app
 
