@@ -47,7 +47,7 @@ class ScraperThread(Thread):
 '''
 This class handles all the necessary actions required when an user types in query to search.
 '''
-class SearchPageHandlerScraperThreads:
+class SearchPageHandler:
     def __init__(self, search_query, modelandclassifier, pages=1):
         '''
         Gets the google search results and the probability distribution for each result

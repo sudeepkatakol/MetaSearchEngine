@@ -4,7 +4,7 @@
 Entry point for the program flow of the application.
 '''
 import sys
-from ConcurrentServer import SearchPageHandlerScraperThreads
+from ConcurrentServer import SearchPageHandler
 from BackEnd import ModelAndClassifier
 from flask import Flask, request, render_template
 
@@ -43,7 +43,7 @@ def search():
     # If the search query and the no. of pages are same, then use previous handler object, no need to create another one 
     if search_query != prev_search_query or prev_no_of_pages != no_of_pages:
         try :
-            handler = SearchPageHandlerScraperThreads(search_query, back_end, pages=no_of_pages)
+            handler = SearchPageHandler(search_query, back_end, pages=no_of_pages)
         except :
             prev_search_query = None
             prev_no_of_pages = None
