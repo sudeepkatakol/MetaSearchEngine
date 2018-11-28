@@ -1,5 +1,9 @@
 # MetaSearchEngine
 
+## Blog post about the project:
+
+[![](https://d3c2plo0qyv3hc.cloudfront.net/images/landing/mobile-app-icon.png)](https://penzu.com/public/561e8502)
+
 ## What is this software about?
 
 This software is a miniature version of Metasearch engine developed keeping in mind the interest of middle school students. The algorithm fetches Google results for a given user query and sorts the results according to the students' needs.
