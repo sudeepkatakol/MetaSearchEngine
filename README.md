@@ -4,8 +4,6 @@
 
 This software is a miniature version of Metasearch engine developed keeping in mind the interest of middle school students. The algorithm fetches Google results for a given user query and sorts the results according to the students' needs.
 
-![Alt text](https://drive.google.com/file/d/11SuSXaX-BrdaCbobF4DvAR1-eHWqZasS/view?usp=sharing)
-
 ## How to use it?
 
 To use the software locally on your Linux system: 
