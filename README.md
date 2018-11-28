@@ -1,14 +1,10 @@
 # MetaSearchEngine
-## Disclaimer:
-The algorithm scrapes the content of pages whose url links are obtained when the search engine is queried. Hence, you may be banned from accessing certain websites.
-
-I've used this software locally and haven't been *completely* banned from any websites
-
 
 ## What is this software about?
 
-This software is a miniature version of Metasearch engine developed keeping in mind the interest of middle school students. The algorithm fetches Google results for a given user query and sorts the results according to the students' needs. 
+This software is a miniature version of Metasearch engine developed keeping in mind the interest of middle school students. The algorithm fetches Google results for a given user query and sorts the results according to the students' needs.
 
+![Alt text](https://drive.google.com/file/d/11SuSXaX-BrdaCbobF4DvAR1-eHWqZasS/view?usp=sharing)
 
 ## How to use it?
 
